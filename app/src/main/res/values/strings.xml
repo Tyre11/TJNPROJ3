@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="add_timer">Add Timer</string>
+    <string name="add_alarm">Add Alarm</string>
+    <string name="location_timer">Location Timer</string>
+    <string name="repeat_alarm">Repeat Alarm</string>
+    <string name="schedule">Schedule</string>
+
+    <string name="home">Home</string>
+</resources>

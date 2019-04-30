@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddAlarmActivity">
+
+    <ToggleButton
+        android:id="@+id/switch1"
+        android:layout_width="95dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginBottom="520dp"
+        android:checked="false"
+        android:onClick="OnToggleClicked"
+        android:text="@string/repeat_alarm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TimePicker
+        android:id="@+id/timePicker1"
+        android:layout_width="302dp"
+        android:layout_height="328dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <DatePicker
+        android:id="@+id/DatePicker1"
+        android:layout_width="277dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="328dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/ScheduleAlarmbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/schedule"
+        android:onClick="onSchedule"
+        app:layout_constraintStart_toEndOf="@+id/timePicker1"
+        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="63dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/repeat_alarm"
+        app:layout_constraintBottom_toTopOf="@+id/switch1"
+        app:layout_constraintStart_toEndOf="@+id/timePicker1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.864" />
+
+    <Button
+        android:id="@+id/addAlHombutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/home"
+        app:layout_constraintStart_toEndOf="@+id/timePicker1"
+        app:layout_constraintTop_toBottomOf="@+id/ScheduleAlarmbutton" />
+
+</android.support.constraint.ConstraintLayout>

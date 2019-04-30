@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/addalarmbutton"
+        android:layout_width="340dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="32dp"
+
+
+        android:layout_marginTop="80dp"
+        android:text="@string/add_alarm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addtimerbutton"
+        android:layout_width="340dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="32dp"
+
+
+        android:layout_marginTop="292dp"
+        android:text="@string/add_timer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/locationtimerb"
+        android:layout_width="340dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="44dp"
+
+
+        android:layout_marginTop="504dp"
+        android:text="@string/location_timer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+
+</android.support.constraint.ConstraintLayout>
