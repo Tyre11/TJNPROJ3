@@ -7,4 +7,6 @@
     <string name="schedule">Schedule</string>
 
     <string name="home">Home</string>
+    <string name="message">Message</string>
+    <string name="repeat_in_min">Repeat in MIN</string>
 </resources>
