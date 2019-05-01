@@ -1,8 +1,13 @@
 package com.example.myapplication;
 
+import android.Manifest;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.media.Ringtone;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,14 +20,19 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
 
 public class AddAlarmActivity extends AppCompatActivity {
+    private FusedLocationProviderClient fusedLocationClient;
     EditText messagetxt;
-   // EditText timereptxt;
+    // EditText timereptxt;
     TimePicker alarmTimePicker;
     static String message;
     AlarmManager alarmManager;
@@ -33,6 +43,7 @@ public class AddAlarmActivity extends AppCompatActivity {
     long reptime;
     PendingIntent pendingIntent;
     Spinner spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,16 +53,16 @@ public class AddAlarmActivity extends AppCompatActivity {
         alarmDatePicker = (DatePicker) findViewById(R.id.DatePicker1);
         homb = (Button) findViewById(R.id.addAlHombutton);
         reptime = 60000;
-        messagetxt=findViewById(R.id.editText);
-       // timereptxt = findViewById(R.id.editText2);
+        messagetxt = findViewById(R.id.editText);
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        // timereptxt = findViewById(R.id.editText2);
 
         //timereptxt.setOnClickListener(new View.OnClickListener() {
-         //   @Override
-          //  public void onClick(View v) {
-               // timereptxt.setText(" ");
-           // }
-       // });
-
+        //   @Override
+        //  public void onClick(View v) {
+        // timereptxt.setText(" ");
+        // }
+        // });
 
 
         scheduleb = (Button) findViewById(R.id.ScheduleAlarmbutton);
@@ -67,19 +78,18 @@ public class AddAlarmActivity extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.spinner);
         ArrayList<String> list = new ArrayList<String>();
         String options[] = TimeZone.getAvailableIDs();
-        for(int i =0; i< options.length;i++){
+        for (int i = 0; i < options.length; i++) {
             list.add(options[i]);
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,list);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, list);
         spinner.setAdapter(adapter);
         spinner.setSelection(93);
     }
-    public void OnToggleClicked(View view)
-    {
+
+    public void OnToggleClicked(View view) {
         long time;
-        if (((ToggleButton) view).isChecked())
-        {
+        if (((ToggleButton) view).isChecked()) {
             repeat = true;
            /* Toast.makeText(MainActivity.this, "ALARM ON", Toast.LENGTH_SHORT).show();
             Calendar calendar = Calendar.getInstance();
@@ -97,20 +107,20 @@ public class AddAlarmActivity extends AppCompatActivity {
                     time = time + (1000*60*60*24);
             }
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, time, 10000, pendingIntent);*/
-        }
-        else
-        {
+        } else {
             repeat = false;
-            /*alarmManager.cancel(pendingIntent);
-            Toast.makeText(MainActivity.this, "ALARM OFF", Toast.LENGTH_SHORT).show();*/
+            alarmManager.cancel(pendingIntent);
+            Toast.makeText(AddAlarmActivity.this, "ALARM OFF", Toast.LENGTH_SHORT).show();
+
         }
     }
+
     public void onSchedule(View view) {
         long time;
-       TimeZone tz = (TimeZone) TimeZone.getTimeZone(spinner.getSelectedItem().toString());
+        TimeZone tz = (TimeZone) TimeZone.getTimeZone(spinner.getSelectedItem().toString());
         Calendar calendar = Calendar.getInstance(tz);
 
-        calendar.set(Calendar.SECOND,0000);
+        calendar.set(Calendar.SECOND, 0000);
         calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getCurrentHour());
         calendar.set(Calendar.MINUTE, alarmTimePicker.getCurrentMinute());
         calendar.set(Calendar.MONTH, alarmDatePicker.getMonth());
@@ -118,6 +128,29 @@ public class AddAlarmActivity extends AppCompatActivity {
         calendar.set(Calendar.DAY_OF_MONTH, alarmDatePicker.getDayOfMonth());
         Intent intent = new Intent(this, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            fusedLocationClient.getLastLocation()
+                    .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                        @Override
+                        public void onSuccess(Location location) {
+                            // Got last known location. In some rare situations this can be null.
+                            if (location != null) {
+                                // Logic to handle location object
+                            }
+                        }
+                    });
+            return;
+        }
+
+
+
+
+
+
 
         time=(calendar.getTimeInMillis()-(calendar.getTimeInMillis()%60000));
         if(System.currentTimeMillis()>time)

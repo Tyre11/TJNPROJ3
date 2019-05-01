@@ -5,8 +5,9 @@
     <string name="location_timer">Location Timer</string>
     <string name="repeat_alarm">Repeat Alarm</string>
     <string name="schedule">Schedule</string>
-
+    <string name="channel_name">CH002</string>
     <string name="home">Home</string>
-    <string name="message">Message</string>
+    <string name="channel_description">CH002</string> channel_description
     <string name="repeat_in_min">Repeat in MIN</string>
+    <string name="message">Message</string>
 </resources>

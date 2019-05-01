@@ -29,9 +29,9 @@
 
     <DatePicker
         android:id="@+id/DatePicker1"
-        android:layout_width="192dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="312dp"
+        android:layout_width="184dp"
+        android:layout_height="418dp"
+        android:layout_marginTop="224dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,8 +39,7 @@
         android:id="@+id/ScheduleAlarmbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="116dp"
         android:onClick="onSchedule"
         android:text="@string/schedule"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,8 +59,7 @@
         android:id="@+id/addAlHombutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="164dp"
         android:text="@string/home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
