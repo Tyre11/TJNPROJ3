@@ -35,13 +35,25 @@
         android:id="@+id/locationtimerb"
         android:layout_width="340dp"
         android:layout_height="66dp"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="52dp"
 
 
-        android:layout_marginTop="504dp"
+        android:layout_marginTop="488dp"
         android:text="@string/location_timer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    
+
+    <EditText
+        android:id="@+id/locts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="404dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

@@ -6,4 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".AddLocTimerActivity">
 
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="214dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="124dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="184dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="76dp"
+        android:text="Minutes before Moved"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

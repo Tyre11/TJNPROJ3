@@ -18,6 +18,10 @@
         <activity android:name=".AddAlarmActivity" />
         <receiver android:name=".AlarmReceiver" >
         </receiver>
+        <receiver android:name=".TimerReceiver" >
+        </receiver>
+        <receiver android:name=".LocTimerReciever" >
+        </receiver>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

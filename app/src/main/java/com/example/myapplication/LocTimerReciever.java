@@ -19,16 +19,16 @@ import java.util.concurrent.Delayed;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 
-public class AlarmReceiver extends BroadcastReceiver
+public class LocTimerReciever extends BroadcastReceiver
 {
-   // Context contxt;
+    // Context contxt;
     static Ringtone ringtone;
     String msg;
     @Override
     public void onReceive(Context context, Intent intent)
     {
         msg = intent.getStringExtra("inMessage");
-       // contxt = context;
+        // contxt = context;
         Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
         Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         if (alarmUri == null)
@@ -47,7 +47,7 @@ public class AlarmReceiver extends BroadcastReceiver
         TimerTask stopper = new TimerTask() {
             @Override
             public void run() {
-                AlarmReceiver.ringtone.stop();
+                LocTimerReciever.ringtone.stop();
             }
         };
         timer.schedule(stopper,5000);
@@ -56,7 +56,7 @@ public class AlarmReceiver extends BroadcastReceiver
     }
 
     public  void  Notification(Context context,String message){
-     //   Intent intent = new Intent((context,Notification();)
+        //   Intent intent = new Intent((context,Notification();)
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context,"CH002")
                         .setDefaults(NotificationCompat.DEFAULT_ALL)
@@ -76,7 +76,5 @@ public class AlarmReceiver extends BroadcastReceiver
 
 
 
-    }
-
-
+}
 
